@@ -77,3 +77,20 @@ exports.loginUser = ('/',async (req,res)=>{
   res.status(400).send(error)
   }
 })
+
+
+// Get Logged In User Details
+exports.getUser =  ('/',async (req,res)=>{
+   try {
+       let userId = req.user.id;
+       console.log(userId)
+      const user = await User.findById(userId).select('-password');
+      console.log('Hello')
+      console.log(user)
+      res.send(user)
+   } catch (error) {
+      res.status(500).json({
+         error:"Internal server error"
+      })
+   }
+})
