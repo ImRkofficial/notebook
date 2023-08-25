@@ -9,15 +9,14 @@ const express= require('express')
 const app = express();
 const appPort = process.env.APP_PORT || 4000
 const auth = require('./routes/auth')
+const notes = require('./routes/notes')
 
 app.use(express.json())
 
 
 
 app.use('/api/auth',auth)
-app.get('/',(req,res)=>{
-res.send('Hello')
-})
+app.use('/api/notes',notes)
 
 
 app.listen(appPort,()=>{
