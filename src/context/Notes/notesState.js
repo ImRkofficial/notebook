@@ -97,9 +97,26 @@ const NoteState = (props)=>{
     ]
     const [notes,setNotes] = useState(note)
    
+    // Adding Note
+    const addNote = (title,description,tag)=>{
+       let note={
+            "_id": "64e990b1e4d2f8262c0ebe99",
+            "user": "64e8cd2e6b8f2d613f4a9a2c",
+            "title": "MERN Stack",
+            "description": "Dummy Description about mern stack development[Added]",
+            "tag": "Full Stack Development",
+            "date": "2023-08-26T05:42:09.528Z",
+            "__v": 0
+        }
+        setNotes(notes.push(note))
+    }
+    // Deleting Note
+
+
+    // Edit Note
     
     return(
-        <NoteContext.Provider value={{notes,setNotes}} >
+        <NoteContext.Provider value={{notes,addNote}} >
             {props.children}
         </NoteContext.Provider>
     )
