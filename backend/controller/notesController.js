@@ -10,7 +10,6 @@ exports.fetchallnotes = ('/', async (req, res) => {
     }
 })
 
-
 exports.createNote = ('/', async (req, res) => {
     try {
         const { title, tag, description } = req.body;
@@ -25,9 +24,6 @@ exports.createNote = ('/', async (req, res) => {
         console.log(error.message)
     }
 })
-
-
-
 
 exports.updateNote = ('/', async (req, res) => {
     const { title, description, tag } = req.body;
@@ -55,9 +51,6 @@ exports.updateNote = ('/', async (req, res) => {
         res.status(500).send("Internal server error")
     }
 })
-
-
-
 
 exports.deleteNote = ('/', async (req, res) => {
     try {

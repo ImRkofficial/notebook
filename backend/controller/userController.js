@@ -3,8 +3,6 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
-
-
 // Create User
 exports.createUser = ('/', async (req, res) => {
    try {
@@ -40,7 +38,6 @@ exports.createUser = ('/', async (req, res) => {
       res.status(400).send(error)
    }
 });
-
 
 
 // Authenticate user Login
