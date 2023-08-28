@@ -3,6 +3,7 @@ import NoteContext from './notesContext';
 
 
 const NoteState = (props)=>{
+    let host ='http://localhost:8000'
     const note =[
         {
             "_id": "64e9821bbb091f6913d02b2a",
@@ -73,9 +74,32 @@ const NoteState = (props)=>{
 
 
     // Edit Note
+// API Call
+    const editNote = async (id,title,description,tag)=>{
+        const response =await fetch(`${host}/api/notes/updatenote/64e8d3695547e666797dbd78`,{
+            method:'POST',
+            headers:{
+                'Content-Type':'appilaction/json',
+                'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXIiOnsiaWQiOiI2NGU4Y2QyZTZiOGYyZDYxM2Y0YTlhMmMifX0sImlhdCI6MTY5Mjk3ODQ3OH0.lBXfwud14FcaLSBM5esI1DHUD-KVAMqTb7nxd3DJpTk'
+            },
+            body:JSON.stringify()
+        });
+        const json =response.json()
+        for (let index = 0; index < notes.length; index++) {
+            const element = notes[index];
+            if(element._id === id){
+                element.title =title;
+                element.description =description;
+                element.tag =tag
+            }
+            
+        }
+    }
+
+
     
     return(
-        <NoteContext.Provider value={{notes,addNote, deleteNote,note}} >
+        <NoteContext.Provider value={{notes,addNote, deleteNote,editNote}} >
             {props.children}
         </NoteContext.Provider>
     )
