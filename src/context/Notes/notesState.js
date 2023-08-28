@@ -14,7 +14,7 @@ const NoteState = (props)=>{
             "__v": 0
         },
         {
-            "_id": "64e990b1e4d2f8262c0ebe99",
+            "_id": "64e990b1e4d2f8262c0ebje99",
             "user": "64e8cd2e6b8f2d613f4a9a2c",
             "title": "MERN Stack",
             "description": "Dummy Description about mern stack development",
@@ -23,7 +23,7 @@ const NoteState = (props)=>{
             "__v": 0
         },
         {
-            "_id": "64e9821bbb091f6913d02b2a",
+            "_id": "64e9821bbb0f91f6913jd02b2a",
             "user": "64e8cd2e6b8f2d613f4a9a2c",
             "title": "Web Development",
             "description": "Dummy Description",
@@ -32,61 +32,7 @@ const NoteState = (props)=>{
             "__v": 0
         },
         {
-            "_id": "64e990b1e4d2f8262c0ebe99",
-            "user": "64e8cd2e6b8f2d613f4a9a2c",
-            "title": "MERN Stack",
-            "description": "Dummy Description about mern stack development",
-            "tag": "Full Stack Development",
-            "date": "2023-08-26T05:42:09.528Z",
-            "__v": 0
-        },
-        {
-            "_id": "64e9821bbb091f6913d02b2a",
-            "user": "64e8cd2e6b8f2d613f4a9a2c",
-            "title": "Web Development",
-            "description": "Dummy Description",
-            "tag": "Development",
-            "date": "2023-08-26T04:39:55.297Z",
-            "__v": 0
-        },
-        {
-            "_id": "64e990b1e4d2f8262c0ebe99",
-            "user": "64e8cd2e6b8f2d613f4a9a2c",
-            "title": "MERN Stack",
-            "description": "Dummy Description about mern stack development",
-            "tag": "Full Stack Development",
-            "date": "2023-08-26T05:42:09.528Z",
-            "__v": 0
-        },
-        {
-            "_id": "64e9821bbb091f6913d02b2a",
-            "user": "64e8cd2e6b8f2d613f4a9a2c",
-            "title": "Web Development",
-            "description": "Dummy Description",
-            "tag": "Development",
-            "date": "2023-08-26T04:39:55.297Z",
-            "__v": 0
-        },
-        {
-            "_id": "64e990b1e4d2f8262c0ebe99",
-            "user": "64e8cd2e6b8f2d613f4a9a2c",
-            "title": "MERN Stack",
-            "description": "Dummy Description about mern stack development",
-            "tag": "Full Stack Development",
-            "date": "2023-08-26T05:42:09.528Z",
-            "__v": 0
-        },
-        {
-            "_id": "64e9821bbb091f6913d02b2a",
-            "user": "64e8cd2e6b8f2d613f4a9a2c",
-            "title": "Web Development",
-            "description": "Dummy Description",
-            "tag": "Development",
-            "date": "2023-08-26T04:39:55.297Z",
-            "__v": 0
-        },
-        {
-            "_id": "64e990b1e4d2f8262c0ebe99",
+            "_id": "64e990b1e4d2f8f262c0hebe99",
             "user": "64e8cd2e6b8f2d613f4a9a2c",
             "title": "MERN Stack",
             "description": "Dummy Description about mern stack development",
@@ -100,23 +46,36 @@ const NoteState = (props)=>{
     // Adding Note
     const addNote = (title,description,tag)=>{
        let note={
-            "_id": "64e990b1e4d2f8262c0ebe99",
+            "_id": "64e990b1e4d2f826t2c0ebe99",
             "user": "64e8cd2e6b8f2d613f4a9a2c",
-            "title": "MERN Stack",
-            "description": "Dummy Description about mern stack development[Added]",
-            "tag": "Full Stack Development",
+            "title": title,
+            "description":description,
+            "tag": tag,
             "date": "2023-08-26T05:42:09.528Z",
             "__v": 0
         }
-        setNotes(notes.push(note))
+        // Here concate returns a array of note then map function will use this for mapping the array items
+        setNotes(notes.concat(note))
     }
+
+
+
     // Deleting Note
+    const deleteNote = (id)=>{
+        console.log(id)
+     const newNote = notes.filter((note)=>{
+        return note._id !== id
+     }) 
+     setNotes(newNote)
+    }
+
+
 
 
     // Edit Note
     
     return(
-        <NoteContext.Provider value={{notes,addNote}} >
+        <NoteContext.Provider value={{notes,addNote, deleteNote,note}} >
             {props.children}
         </NoteContext.Provider>
     )

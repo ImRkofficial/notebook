@@ -3,19 +3,21 @@ import noteContext from "../context/Notes/notesContext";
 import NoteItem from "./NoteItem";
 import AddNote from "./AddNote";
 
-function Home() {
+const Home =()=> {
   const notesContext = useContext(noteContext);
   const { notes } = notesContext;
   return (
     <>
      
-        <div className="card-container row" style={{flexDirection:'row'}}>
+        <div className="card-container container">
           <AddNote/>
-        {
+       <div className="row">
+       {
           notes.map((note) => (
-           <NoteItem title={note.title} description={note.description} tag={note.tag}/>
+           <NoteItem  key={note._id} note={note}/>
           ))
         }
+       </div>
         </div>
       
     </>
