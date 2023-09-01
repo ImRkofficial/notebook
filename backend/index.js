@@ -7,10 +7,12 @@ connectionToDb();
 
 const express= require('express')
 const app = express();
+const cors =require('cors')
 const appPort = process.env.APP_PORT || 4000
 const auth = require('./routes/auth')
 const notes = require('./routes/notes')
 
+app.use(cors())
 app.use(express.json())
 
 
