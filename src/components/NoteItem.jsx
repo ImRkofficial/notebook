@@ -5,7 +5,7 @@ const NoteItem = (props) => {
     const context = useContext(NoteContext);
     const {deleteNote } = context;
     const {note} = props ;
-console.log(note._id)
+
     const handleDelete =()=>{
         deleteNote(note._id)
     }

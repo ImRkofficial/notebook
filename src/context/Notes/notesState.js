@@ -23,28 +23,28 @@ const NoteState = (props)=>{
     }
     // Adding Note
     const addNote =async (title,description,tag)=>{
-
         const response =await fetch(`${host}/api/notes/addnote`,{
             method:'POST',
             headers:{
                 'Content-Type':'appilaction/json',
+                'mode':'cors',
                 'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXIiOnsiaWQiOiI2NGU4Y2QyZTZiOGYyZDYxM2Y0YTlhMmMifX0sImlhdCI6MTY5Mjk3ODQ3OH0.lBXfwud14FcaLSBM5esI1DHUD-KVAMqTb7nxd3DJpTk'
             },
             body:JSON.stringify({title,description,tag})
         });
-        const json =await response.json()
-
-       let note={
+        
+       const note={
             "_id": "64e990b1e4d2f826t2c0ebe99",
             "user": "64e8cd2e6b8f2d613f4a9a2c",
-            "title": json.title,
-            "description":json.description,
-            "tag": json.tag,
+            "title": title,
+            "description":description,
+            "tag": tag,
             "date": "2023-08-26T05:42:09.528Z",
             "__v": 0
         }
+        console.log(note)
         // Here concate returns a array of note then map function will use this for mapping the array items
-        setNotes(notes.concat(note))
+        setNotes(notes.concat(note))    
     }
 
 

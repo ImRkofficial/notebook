@@ -10,11 +10,12 @@ const AddNote =()=> {
 
   const handleClick = (e)=>{
     e.preventDefault();
-    addNote(note.title,note.description,note.tag)
+     addNote(note.title,note.description,note.tag)
   }
 
-  const handleChange =(e)=>{
-    setNote({...note,[e.target.name]:e.target.value})
+  const handleChange = (e)=>{
+     setNote({...note,[e.target.name]:e.target.value})
+    //  console.log(note)
   }
   return (
     <>
